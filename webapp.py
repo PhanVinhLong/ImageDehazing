@@ -17,6 +17,8 @@ from PIL import Image
 
 from werkzeug.utils import secure_filename
 
+from TestFFA import TestFFA
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--output_dir", default='./static/images', help="output folder [DO NOT CHANGE]")
 args = parser.parse_args()
@@ -57,9 +59,8 @@ def dehaze():
     else:
         return flask.redirect(flask.url_for('image_not_found'))
 
-    dehazed_path = image_path
+    dehazed_path = TestFFA(image_path, args.output_dir, 'its')
     print("image_path:", image_path)
-    input_im = Image.open(image_path)
 
     return flask.jsonify({
         "real": image_path,
