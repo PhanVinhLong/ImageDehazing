@@ -59,8 +59,13 @@ def dehaze():
     else:
         return flask.redirect(flask.url_for('image_not_found'))
 
-    dehazed_path = TestFFA(image_path, args.output_dir, 'its')
-    print("image_path:", image_path)
+    task=''
+    if model=='FFA-its':
+        task='its'
+    elif model=='FFA-ots':
+        task='ots'
+    dehazed_path = TestFFA(image_path, args.output_dir, task)
+    print("pred_path:", dehazed_path)
 
     return flask.jsonify({
         "real": image_path,

@@ -1,6 +1,7 @@
 import os,argparse
 import numpy as np
 from PIL import Image
+import ntpath
 
 import torch
 import torch.nn as nn
@@ -29,8 +30,7 @@ gps=3
 blocks=19
 
 def TestFFA(img_dir, output_dir, dataset):
-    print('FFA dir:', FFA_dir)
-    print("pred_path:",img_dir)
+    print("img_path:",img_dir)
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
     model_dir=FFA_dir+f'trained_models/{dataset}_train_ffa_{gps}_{blocks}.pk'
@@ -41,7 +41,6 @@ def TestFFA(img_dir, output_dir, dataset):
     net.load_state_dict(ckp['model'])
     net.eval()
 
-    print(f'\r {img_dir}',end='',flush=True)
     haze = Image.open(img_dir)
     haze1= tfs.Compose([
         tfs.ToTensor(),
@@ -51,7 +50,8 @@ def TestFFA(img_dir, output_dir, dataset):
     with torch.no_grad():
         pred = net(haze1)
     ts=torch.squeeze(pred.clamp(0,1).cpu())
-    tensorShow([haze_no,pred.clamp(0,1).cpu()],['haze','pred'])
-    pred_path=output_dir+img_dir.split('.')[0]+'_FFA.png'
+    img_fname=ntpath.basename(img_dir)
+    _, img_ext = os.path.splitext(img_fname)
+    pred_path=output_dir+img_fname.split('.')[0]+'_FFA'+img_ext
     vutils.save_image(ts, pred_path)
     return pred_path
