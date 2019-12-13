@@ -20,7 +20,7 @@ from werkzeug.utils import secure_filename
 from TestFFA import TestFFA
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--output_dir", default='./static/images', help="output folder [DO NOT CHANGE]")
+parser.add_argument("--output_dir", default='./static/images/', help="output folder [DO NOT CHANGE]")
 args = parser.parse_args()
 
 # Check the output directory to save the checkpoint

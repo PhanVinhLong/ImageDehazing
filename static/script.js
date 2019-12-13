@@ -10,8 +10,14 @@ $(function () {
     $dehaze.on('click', function (e) {
         e.preventDefault();
         console.log('report');
+        //loading();
         dehazeImage();
     });
+
+    function loading(){
+        document.querySelector("#loading").style.visibility = 'hidden';
+        // $("#content").hide();       
+    }
 
 
     function dehazeImage() {
@@ -28,7 +34,6 @@ $(function () {
             success: function (response) {
                 console.log(response['real']);
                 $real.attr("src",  response['real']);
-                $tmap.attr("src",  response['tmap']);
                 $result.attr("src", response['dehazed']);
                 return true;
             }
