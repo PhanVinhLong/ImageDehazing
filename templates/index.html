@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Dehazing</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/style.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="../static/script.js"></script>
+</head>
+
+<body>
+<h2 class="text-center app-header">FFA Image Dehazing</h2>
+<br>
+<div class="container">
+
+    <div class="row shadow input-container">
+        <form id='image-form' class="input-form" enctype="multipart/form-data">
+            <div class="col-md-6 form-group input-file">
+                <h4><label for="image">Image Path</label></h4>
+                <input type="file" class="form-control" id="image" name="image" autofocus/>
+            </div>
+
+            <div class="col-md-3 form-group">
+                <h4><label for="model">Choose Model</label></h4>
+                <div id="model" class="form-control">
+                    <input type="radio" name="model" value="FFA-its" checked>FFA ITS</input>
+                    <input type="radio" name="model" value="FFA-ots" checked>FFA OTS</input>
+                    <input type="radio" name="model" value="GCA">GCA</input>
+                </div>
+            </div>
+
+            <div class="col-md-3 form-group middle">
+                <button class="btn btn-primary" id="dehaze" type="submit">Dehaze Image</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="row shadow image-container">
+        <div class="column">
+            <h4><label for="real">Real Image</label></h4>
+            <img src="" id="real" style="width:100%">
+        </div>
+        <div class="column">
+            <h4><label for="result">Dehazed Image</label></h4>
+            <img src="" id="result" style="width:100%">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+body {
+    padding-top: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+div.shadow {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 24px #bbb;
+    background: #fff;
+    color: #666;
+}
+
+.input-container, .image-container {
+    width: auto;
+    /*max-height: 650px;*/
+    padding: 20px 50px 40px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.image-container table th {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.container > h3 {
+    text-align: center;
+}
+
+/*.input-form {*/
+/*    max-width: 600px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+.input-form .btn {
+    width: 200px;
+}
+
+/* Font */
+.app-header, .input-form label, .input-container label, .image-container label, .input-container th {
+    font-family: 'Shadows Into Light Two', sans-serif;
+}
+
+.input-form input, .input-form textarea, .input-form button {
+    font-family: 'Roboto', sans-serif;
+    height: auto;
+}
+
+
+.middle {
+    margin-top: 43px;
+}
+
+.column {
+  float: left;
+  width: 40%;
+  padding: 5px;
+}
