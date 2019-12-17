@@ -1,8 +1,8 @@
 $(function () {
     var $dehaze = $('#dehaze');
     var $real = $('#real');
-    var $tmap = $('#tmap');
     var $result = $('#result');
+    var $loading = $('#loading');
 
     // Activate tooltip
     $('[data-toggle="tooltip"]').tooltip();
@@ -10,15 +10,9 @@ $(function () {
     $dehaze.on('click', function (e) {
         e.preventDefault();
         console.log('report');
-        //loading();
+        document.getElementById('loading').style.visibility = 'visible';
         dehazeImage();
     });
-
-    function loading(){
-        document.querySelector("#loading").style.visibility = 'hidden';
-        // $("#content").hide();       
-    }
-
 
     function dehazeImage() {
         var form = document.querySelector('#image-form');
@@ -32,6 +26,7 @@ $(function () {
             processData: false,
             async: false,
             success: function (response) {
+                document.getElementById('loading').style.visibility = 'hidden';
                 console.log(response['real']);
                 $real.attr("src",  response['real']);
                 $result.attr("src", response['dehazed']);

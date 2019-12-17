@@ -58,13 +58,9 @@ div.shadow {
   padding: 5px;
 }
 
-.loading-img {
-    width: 40px;
-}
-
 #loading {
-    width: 50px;
-    height: 50px;
-    background-image: url('https://media2.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif') no-repeat;
+    width: 20px;
+    height: 20px;
+    visibility: hidden;
     cursor: wait;
 }
